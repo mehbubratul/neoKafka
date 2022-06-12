@@ -4,9 +4,9 @@ Barebone kafka with Spring Boot
 
 ## The Primers Before Everything:
 
-Taken from [Kafka Introduction](https://kafka.apache.org/intro "Kafka Introduction")
+:point_right: :link: [Kafka Introduction](https://kafka.apache.org/intro "Kafka Introduction")
 
-### Event streaming
+### :large_blue_circle: Event streaming
 
 Event streaming is the digital equivalent of the human body's central nervous system. Event streaming ensures a continuous flow and interpretation of data so that the right information is at the right place, at the right time.
 
@@ -16,7 +16,7 @@ Technically speaking,
 - **Manipulating, processing, and reacting** to the event streams in real-time as well as retrospectively;
 - **Routing** the event streams to different _destination_ technologies as needed.
 
-### Apache Kafka®
+### :large_blue_circle: Apache Kafka®
 
 Kafka combines three key capabilities for event streaming end-to-end with a single battle-tested solution:
 - To **publish** (_write_) and **subscribe** to (_read_) streams of events, including continuous import/export of your data from other systems.
@@ -26,7 +26,7 @@ Kafka combines three key capabilities for event streaming end-to-end with a sing
 Above functionalities are provided in a **distributed**, **highly scalable**, **elastic**, **fault-tolerant**, and **secure** manner.
 Kafka can be deployed on **bare-metal hardware**, **virtual machines**, **containers**, **on-premises** as well as in the **cloud**.
 
-### How does Kafka work in a nutshell?
+### :large_blue_circle: How does Kafka work in a nutshell?
 
 This is a **distributed system** consisting of **servers** and **clients** that _communicate_ via a high-performance **TCP network protocol** .
 * Servers : 
@@ -37,11 +37,24 @@ This is a **distributed system** consisting of **servers** and **clients** that 
 * Clients : 
 This allow us to **write** " _distributed applications and microservices that read, write, and process streams of events in parallel, at scale, and in a fault-tolerant manner_" even in the case of network problems or machine failures.
 
-### Concepts and Terminology
+### :large_blue_circle: Why is Kafka fast?
 
-_Event, Producer, Consumer, Topic, Partition, Replication_
+:point_right: :link: [Why is Kafka fast]( https://www.linkedin.com/feed/update/urn:li:activity:6912684827469078528/ "Why is Kafka fast")
 
-##### Event :
+![5 1](https://user-images.githubusercontent.com/75577090/173237481-7741f217-32f1-4641-b451-3fbeece0cbd3.jpg)
+
+
+### :red_circle: When NOT to use Apache Kafka?
+
+Apache Kafka is the de facto standard for event streaming to process data in motion. This blog post explores when NOT to use Apache Kafka.
+
+:point_right: :link: [When NOT to use Apache Kafka](https://www.kai-waehner.de/blog/2022/01/04/when-not-to-use-apache-kafka/ "When NOT to use Apache Kafka")
+
+### :large_blue_circle: Concepts and Terminology
+
+_Event, Producers, Consumers, Topics, Partition, Replication_
+
+##### :one: Event :
 
 - An event records the fact that "something happened". Also called record or message in the documentation. **When we read or write data to Kafka, we do this in the form of events**. 
 - Conceptually, an event has a key, value, timestamp, and optional metadata headers. 
@@ -52,14 +65,14 @@ _Event, Producer, Consumer, Topic, Partition, Replication_
     <p>- Event timestamp: "Jun. 25, 2020 at 2:06 p.m."</p>
   </details>
 
-##### Producers & Consumers
+##### :two: Producers & Consumers
 
 - **Producers** are those client applications that _**publish** (write) events to Kafka_ 
 - **Consumers** are those that _**subscribe to** (read and process) these events_. 
 - In Kafka, producers and consumers are **fully decoupled and agnostic** of each other, which is a **key design element** to achieve the **high scalability** that Kafka is known for. 
 - For example, _producers never need to wait for consumers_. Kafka provides various guarantees such as the ability to process events **exactly-once**.
 
-##### Topics
+##### :three: Topics
 
 - **Events** are organized and durably **stored** in **topics**. 
 - Very simplified, _a topic is similar to a folder in a filesystem, and the events are the files in that folder_. 
@@ -68,7 +81,7 @@ _Event, Producer, Consumer, Topic, Partition, Replication_
 - Events in a topic can be read as often as needed—unlike traditional messaging systems, e**vents are not deleted after consumption**. Instead, we can **define** for how long Kafka should retain your events through a **per-topic configuration setting**, after which old events will be discarded. 
 - Kafka's **performance** is **effectively constant** with **respect to data size**, so _storing data for a long time is perfectly fine_.
 
-##### Partition
+##### :four: Partition
 
 - **Topics** are **partitioned**, meaning ___a topic is spread over a number of "buckets" located on different Kafka brokers___. 
 - This _distributed placement_ of the data is vital for _scalability_ because it allows client applications to both read and write the data from/to many brokers at the same time. 
@@ -78,7 +91,7 @@ _Event, Producer, Consumer, Topic, Partition, Replication_
   -  Kafka **guarantees** that any **consumer of a given topic-partition** will always **read** that **partition's events** in **exactly the same order** as they were written.
 
 
-![Topic_Partition](https://kafka.apache.org/images/streams-and-tables-p1_p4.png "Topic & Partirioned Explained")
+:link: ![Topic_Partition](https://kafka.apache.org/images/streams-and-tables-p1_p4.png "Topic & Partirioned Explained")
 
 1. This example topic has four partitions P1–P4.
     1. Two different producer clients are publishing, independently from each other,
@@ -87,32 +100,42 @@ _Event, Producer, Consumer, Topic, Partition, Replication_
 3. Note that both producers can write to the same partition if appropriate.
 
 
-##### Replication
+##### :five: Replication
 
-To make your data fault-tolerant and highly-available, every topic can be replicated, even across geo-regions or datacenters, so that there are always multiple brokers that have a copy of the data just in case things go wrong, you want to do maintenance on the brokers, and so on. A common production setting is a replication factor of 3, i.e., there will always be three copies of your data. This replication is performed at the level of topic-partitions.
+To make our data **fault-tolerant** and **highly-available**, 
+- every topic can be replicated, 
+- even across geo-regions or datacenters, so that there are **always multiple brokers** that have _a copy of the data just in case things go wrong_, or maintenance required on the brokers, and so on. 
+- A common production setting is a **replication factor of 3**, i.e., there will always be three copies of your data. ___This replication is performed at the level of topic-partitions___.
 
 
-### Kafka APIs
+### :large_blue_circle: Kafka APIs
 
 Kafka has **five core APIs** for **Java and Scala**:
 
 ##### :one: The Admin API 
 
-to manage and inspect topics, brokers, and other Kafka objects.
+To ___manage and inspect___ topics, brokers, and other Kafka objects.
 
 ##### :two: The Producer API 
 
-to publish (write) a stream of events to one or more Kafka topics.
+To ___publish (write)___ a stream of events to one or more Kafka topics.
 
 ##### :three: The Consumer API 
 
-to subscribe to (read) one or more topics and to process the stream of events produced to them.
+To ___subscribe to (read)___ one or more topics and ___to process___ the stream of events produced to them.
 
 ##### :four: The Kafka Streams API 
 
-to implement stream processing applications and microservices. It provides higher-level functions to process event streams, including transformations, stateful operations like aggregations and joins, windowing, processing based on event-time, and more. Input is read from one or more topics in order to generate output to one or more topics, effectively transforming the input streams to output streams.
+To ___implement stream processing applications and microservices___. 
+
+It provides higher-level functions to process event streams, including transformations, stateful operations like aggregations and joins, windowing, processing based on event-time, and more. 
+
+Input is read from one or more topics in order to generate output to one or more topics, effectively transforming the input streams to output streams.
 
 ##### :five: The Kafka Connect API 
 
-to build and run reusable data import/export connectors that consume (read) or produce (write) streams of events from and to external systems and applications so they can integrate with Kafka. For example, a connector to a relational database like PostgreSQL might capture every change to a set of tables. However, in practice, you typically don't need to implement your own connectors because the Kafka community already provides hundreds of ready-to-use connectors.
+To ___build and run reusable data import/export connectors___ that consume (read) or produce (write) streams of events from and to external systems and applications so they can integrate with Kafka. 
+
+For example, a connector to a relational database like PostgreSQL might capture every change to a set of tables. However, in practice, you typically don't need to implement your own connectors because the Kafka community already provides hundreds of ready-to-use connectors.
   
+
