@@ -39,14 +39,26 @@ This allow us to **write** " _distributed applications and microservices that re
 
 ### :large_blue_circle: Why is Kafka fast?
 
-:point_right: :link: [Why is Kafka fast]( https://www.linkedin.com/feed/update/urn:li:activity:6912684827469078528/ "Why is Kafka fast")
+:point_right: :link: [Alex Xu on Twitter]( https://www.linkedin.com/feed/update/urn:li:activity:6912684827469078528/ "Why is Kafka fast")
 
 ![5 1](https://user-images.githubusercontent.com/75577090/173237481-7741f217-32f1-4641-b451-3fbeece0cbd3.jpg)
 
 
 ### :red_circle: When NOT to use Apache Kafka?
 
-Apache Kafka is the de facto standard for event streaming to process data in motion. This blog post explores when NOT to use Apache Kafka.
+Apache Kafka is the de facto standard for event streaming to process data in motion. 
+
+##### Kafka is NOT…
+
+- :x: A **proxy for millions of clients** (like mobile apps) – but Kafka-native proxies (like REST or MQTT) exist for some use cases.
+- :x: An **API Management platform** – but these tools are usually complementary and used for the creation, life cycle management, or the monetization of Kafka APIs.
+- :x: A **database** for complex queries and batch analytics workloads – but good enough for transactional queries and relatively simple aggregations (especially with ksqlDB).
+- :x: An **IoT platform** with features such as device management  – but direct Kafka-native integration with (some) IoT protocols such as MQTT or OPC-UA is possible and the appropriate approach for (some) use cases.
+- :x: A **technology for hard real-time applications** such as safety-critical or deterministic systems – but that’s true for any other IT framework, too. Embedded systems are a different software!
+
+:white_check_mark: For these reasons, **Kafka is complementary, not competitive**, to these other technologies.
+
+This blog post explores when NOT to use Apache Kafka.
 
 :point_right: :link: [When NOT to use Apache Kafka](https://www.kai-waehner.de/blog/2022/01/04/when-not-to-use-apache-kafka/ "When NOT to use Apache Kafka")
 
