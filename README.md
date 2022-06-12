@@ -39,9 +39,9 @@ This allow us to **write** " _distributed applications and microservices that re
 
 ### :large_blue_circle: Why is Kafka fast?
 
-:point_right: :link: [Alex Xu on Twitter]( https://www.linkedin.com/feed/update/urn:li:activity:6912684827469078528/ "Why is Kafka fast")
+:point_right: :link: [Alex Xu | bytebytego ]( https://blog.bytebytego.com/p/why-is-kafka-fast?s=r "Why is Kafka fast")
 
-![5 1](https://user-images.githubusercontent.com/75577090/173237481-7741f217-32f1-4641-b451-3fbeece0cbd3.jpg)
+![5 2](https://user-images.githubusercontent.com/75577090/173240588-17bc7583-fae8-4cc8-8b56-c683580fecce.jpg)
 
 
 ### :red_circle: When NOT to use Apache Kafka?
