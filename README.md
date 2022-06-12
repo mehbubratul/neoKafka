@@ -191,5 +191,12 @@ For example, a connector to a relational database like PostgreSQL might capture 
 </dependency>
 ```
 
- 
- 
+## :large_orange_diamond: Github
+
+### :point_right:  Spring for Apache Kafka :
+
+:link: [Github | Spring]( https://github.com/spring-projects/spring-kafka "spring-projects/spring-kafka ")
+
+### :point_right: Confluent Inc.
+
+:link: [Github | Confluent Inc.](https://github.com/confluentinc "Confluent Inc.")
