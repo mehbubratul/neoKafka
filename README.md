@@ -150,4 +150,46 @@ To ___build and run reusable data import/export connectors___ that consume (read
 
 For example, a connector to a relational database like PostgreSQL might capture every change to a set of tables. However, in practice, you typically don't need to implement your own connectors because the Kafka community already provides hundreds of ready-to-use connectors.
   
+### :large_blue_circle: Kafka maven dependency for Java
 
+##### Producer API
+
+```
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>3.2.0</version>
+</dependency>
+```
+##### Consumer API
+
+```
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>3.2.0</version>
+</dependency>
+```
+
+##### Streams API
+
+```
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-streams</artifactId>
+	<version>3.2.0</version>
+</dependency>
+```
+
+##### Admin API
+
+```
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>3.2.0</version>
+</dependency>
+```
+
+ 
+ 
